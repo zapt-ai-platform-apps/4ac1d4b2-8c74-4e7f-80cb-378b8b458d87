@@ -658,7 +658,7 @@ export const startupsData = [
     name: "ZAPT",
     description: "Create Apps in Minutes. No Coding Required",
     founded: 2023,
-    funding: "0.001M", // Less than $1000 in revenue
+    funding: "0.250M",
     stage: "pre-seed",
     keyDifferentiators: [
       "AI that understands plain English app descriptions",
