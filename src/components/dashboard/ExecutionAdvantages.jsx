@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import SectionHeading from '@/components/shared/SectionHeading';
 import Card from '@/components/shared/Card';
 import { useAppContext } from '@/context/AppContext';
@@ -6,24 +7,49 @@ import { useAppContext } from '@/context/AppContext';
 export default function ExecutionAdvantages() {
   const { selectedStartup } = useAppContext();
   
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      }
+    }
+  };
+  
+  const item = {
+    hidden: { opacity: 0, x: -20 },
+    show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 200 } }
+  };
+  
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <SectionHeading 
         title="Execution Advantages" 
         subtitle="How they win through superior execution"
       />
       <Card>
-        <ul className="space-y-3">
+        <motion.ul 
+          className="space-y-4"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
           {selectedStartup.executionAdvantages.map((item, index) => (
-            <li key={index} className="flex items-start">
-              <span className="inline-flex items-center justify-center flex-shrink-0 w-5 h-5 mr-2 bg-green-100 text-green-600 rounded-full">
+            <motion.li key={index} className="flex items-start" variants={item}>
+              <span className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 bg-gradient-to-r from-accent-400 to-accent-500 text-white rounded-full font-semibold text-sm">
                 {index + 1}
               </span>
-              <span>{item}</span>
-            </li>
+              <span className="pt-1">{item}</span>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </Card>
-    </div>
+    </motion.div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function RatingBar({ value }) {
   // Convert the value (0-10) to a percentage
@@ -8,20 +9,22 @@ export default function RatingBar({ value }) {
   let colorClass = 'bg-gray-300'; // Default
   
   if (value >= 8) {
-    colorClass = 'bg-green-500';
+    colorClass = 'bg-gradient-to-r from-green-400 to-green-500';
   } else if (value >= 6) {
-    colorClass = 'bg-blue-500';
+    colorClass = 'bg-gradient-to-r from-primary-400 to-primary-500';
   } else if (value >= 4) {
-    colorClass = 'bg-yellow-500';
+    colorClass = 'bg-gradient-to-r from-yellow-400 to-yellow-500';
   } else {
-    colorClass = 'bg-red-500';
+    colorClass = 'bg-gradient-to-r from-red-400 to-red-500';
   }
   
   return (
-    <div className="w-full bg-gray-200 rounded-full h-2.5">
-      <div 
-        className={`h-2.5 rounded-full ${colorClass}`}
-        style={{ width: `${percentage}%` }}
+    <div className="w-full bg-gray-200 rounded-full h-3">
+      <motion.div 
+        className={`h-3 rounded-full ${colorClass}`}
+        initial={{ width: 0 }}
+        animate={{ width: `${percentage}%` }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       />
     </div>
   );

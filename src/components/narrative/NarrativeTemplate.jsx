@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Card from '@/components/shared/Card';
 
 export default function NarrativeTemplate({ startup }) {
@@ -46,29 +47,61 @@ export default function NarrativeTemplate({ startup }) {
   
   return (
     <Card>
-      <div className="prose max-w-none">
-        <h3 className="text-lg font-semibold text-gray-800">Example: {startup.name}</h3>
+      <motion.div 
+        className="prose max-w-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.h3 
+          className="text-lg font-semibold text-gradient mb-4 pb-2 border-b border-gray-100"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          Example: {startup.name}
+        </motion.h3>
         
-        <div className="mb-4">
-          <h4 className="text-md font-medium text-gray-700">Market Insight</h4>
-          <p className="text-sm text-gray-600">{template.marketInsight}</p>
-        </div>
+        <motion.div 
+          className="mb-4"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+        >
+          <h4 className="text-md font-medium text-primary-700 mb-1">Market Insight</h4>
+          <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border-l-4 border-gray-200 italic">{template.marketInsight}</p>
+        </motion.div>
         
-        <div className="mb-4">
-          <h4 className="text-md font-medium text-gray-700">{isEarlyStage ? "Solution Advantage" : "Competitive Advantage"}</h4>
-          <p className="text-sm text-gray-600">{template.competitiveAdvantage}</p>
-        </div>
+        <motion.div 
+          className="mb-4"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          <h4 className="text-md font-medium text-primary-700 mb-1">{isEarlyStage ? "Solution Advantage" : "Competitive Advantage"}</h4>
+          <p className="text-sm text-gray-600 bg-primary-50 p-3 rounded-lg border-l-4 border-primary-200 italic">{template.competitiveAdvantage}</p>
+        </motion.div>
         
-        <div className="mb-4">
-          <h4 className="text-md font-medium text-gray-700">Execution Strategy</h4>
-          <p className="text-sm text-gray-600">{template.executionStrategy}</p>
-        </div>
+        <motion.div 
+          className="mb-4"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+        >
+          <h4 className="text-md font-medium text-primary-700 mb-1">Execution Strategy</h4>
+          <p className="text-sm text-gray-600 bg-secondary-50 p-3 rounded-lg border-l-4 border-secondary-200 italic">{template.executionStrategy}</p>
+        </motion.div>
         
-        <div className="mb-4">
-          <h4 className="text-md font-medium text-gray-700">Team Strengths</h4>
-          <p className="text-sm text-gray-600">{template.teamStrengths}</p>
-        </div>
-      </div>
+        <motion.div 
+          className="mb-4"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+        >
+          <h4 className="text-md font-medium text-primary-700 mb-1">Team Strengths</h4>
+          <p className="text-sm text-gray-600 bg-accent-50 p-3 rounded-lg border-l-4 border-accent-200 italic">{template.teamStrengths}</p>
+        </motion.div>
+      </motion.div>
     </Card>
   );
 }
