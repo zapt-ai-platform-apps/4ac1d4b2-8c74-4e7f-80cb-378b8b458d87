@@ -8,6 +8,7 @@ import { useAppContext } from '@/context/AppContext';
 
 export default function DifferentiationScorecard() {
   const { selectedStartup } = useAppContext();
+  const isEarlyStage = ['pre-seed', 'seed'].includes(selectedStartup.stage);
   
   const metrics = [
     { key: 'teamStrength', label: 'Team Strength', description: 'Quality and experience of the founding and leadership team' },
@@ -21,12 +22,16 @@ export default function DifferentiationScorecard() {
   const avgScore = Object.values(selectedStartup.metrics).reduce((a, b) => a + b, 0) / 
                  Object.values(selectedStartup.metrics).length;
   
+  const competitors = isEarlyStage 
+    ? selectedStartup.indirectCompetitors || [] 
+    : selectedStartup.competitors || [];
+  
   return (
     <div>
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Differentiation Scorecard</h1>
         <p className="text-gray-600 mt-2">
-          Visual representation of how startups rate against competitors across key metrics.
+          Visual representation of how startups rate against {isEarlyStage ? 'adjacent solutions' : 'competitors'} across key metrics.
         </p>
       </div>
       
@@ -63,8 +68,8 @@ export default function DifferentiationScorecard() {
         
         <div className="lg:col-span-2">
           <SectionHeading 
-            title="Competitive Comparison" 
-            subtitle="How you compare to competitors across key metrics"
+            title={isEarlyStage ? "Comparison with Adjacent Solutions" : "Competitive Comparison"} 
+            subtitle={`How you compare to ${isEarlyStage ? 'similar solutions' : 'competitors'} across key metrics`}
           />
           <Card>
             <div className="space-y-8">
@@ -116,22 +121,30 @@ export default function DifferentiationScorecard() {
               }. Consider allocating resources to improve this dimension of your competitive positioning.
             </p>
             
-            <p className="text-gray-700">
-              <strong>Leverage competitive differentiation:</strong> Against {selectedStartup.competitors[0].name}, your most significant advantages are in 
-              {Object.keys(selectedStartup.metrics)
-                .filter(key => selectedStartup.metrics[key] > selectedStartup.competitors[0].metrics[key])
-                .sort((a, b) => 
-                  (selectedStartup.metrics[b] - selectedStartup.competitors[0].metrics[b]) - 
-                  (selectedStartup.metrics[a] - selectedStartup.competitors[0].metrics[a])
-                )
-                .slice(0, 2)
-                .map(key => {
-                  const metricLabel = metrics.find(m => m.key === key)?.label;
-                  return ` ${metricLabel}`;
-                })
-                .join(' and')
-              }. These should be central to your competitive positioning strategy.
-            </p>
+            {competitors.length > 0 && (
+              <p className="text-gray-700">
+                <strong>{isEarlyStage ? "Differentiation from adjacent solutions" : "Leverage competitive differentiation"}:</strong> Against {competitors[0].name}, your most significant advantages are in 
+                {Object.keys(selectedStartup.metrics)
+                  .filter(key => selectedStartup.metrics[key] > competitors[0].metrics[key])
+                  .sort((a, b) => 
+                    (selectedStartup.metrics[b] - competitors[0].metrics[b]) - 
+                    (selectedStartup.metrics[a] - competitors[0].metrics[a])
+                  )
+                  .slice(0, 2)
+                  .map(key => {
+                    const metricLabel = metrics.find(m => m.key === key)?.label;
+                    return ` ${metricLabel}`;
+                  })
+                  .join(' and')
+                }. These should be central to your competitive positioning strategy.
+              </p>
+            )}
+            
+            {isEarlyStage && (
+              <p className="text-gray-700">
+                <strong>Early-stage advantage:</strong> As an early-stage company, your ability to quickly adapt to market feedback gives you an edge against more established solutions that may be slower to change. Focus on emphasizing your specialized approach to the problem compared to the more generalized solutions currently available.
+              </p>
+            )}
           </div>
         </Card>
       </div>

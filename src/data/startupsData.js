@@ -5,6 +5,7 @@ export const startupsData = [
     description: "Payment processing platform for businesses of all sizes",
     founded: 2010,
     funding: "2.2B",
+    stage: "established",
     keyDifferentiators: [
       "Developer-first approach with superior documentation",
       "Comprehensive API and integrations ecosystem",
@@ -97,6 +98,7 @@ export const startupsData = [
     description: "Business communication platform for team collaboration",
     founded: 2013,
     funding: "1.4B",
+    stage: "established",
     keyDifferentiators: [
       "Seamless integration ecosystem",
       "User-friendly interface",
@@ -189,6 +191,7 @@ export const startupsData = [
     description: "E-commerce platform for online stores and retail point-of-sale systems",
     founded: 2006,
     funding: "7.8B",
+    stage: "established",
     keyDifferentiators: [
       "All-in-one commerce solution",
       "Merchant-focused features and tools",
@@ -281,6 +284,7 @@ export const startupsData = [
     description: "Online marketplace for lodging and tourism experiences",
     founded: 2008,
     funding: "6.4B",
+    stage: "established",
     keyDifferentiators: [
       "Unique inventory of properties",
       "Experience marketplace beyond lodging",
@@ -362,6 +366,288 @@ export const startupsData = [
             competitor: "VRBO",
             response: "Introduce their own competing loyalty program",
             counterStrategy: "Leverage host relationships to create unique loyalty experiences"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 5,
+    name: "Nova AI",
+    description: "AI-powered knowledge management platform for research teams",
+    founded: 2023,
+    funding: "1.5M",
+    stage: "pre-seed",
+    keyDifferentiators: [
+      "Domain-specific AI models for research applications",
+      "Collaborative knowledge synthesis workflows",
+      "Seamless integration with research tools",
+      "Focus on scientific discovery acceleration"
+    ],
+    executionAdvantages: [
+      "Founding team with deep AI and research expertise",
+      "Early partnerships with research institutions",
+      "Iterative development with research users",
+      "Novel approach to knowledge representation"
+    ],
+    indirectCompetitors: [
+      {
+        id: 501,
+        name: "Notion",
+        category: "Knowledge Management",
+        founded: 2016,
+        strengthAreas: ["General knowledge management", "Flexible workspace", "Consumer adoption"],
+        weakAreas: ["Research-specific features", "Advanced AI capabilities", "Specialized integrations"],
+        metrics: {
+          teamStrength: 8,
+          technology: 7,
+          goToMarket: 9,
+          customerExperience: 8,
+          marketFit: 7
+        }
+      },
+      {
+        id: 502,
+        name: "Elicit",
+        category: "Research Tools",
+        founded: 2020,
+        strengthAreas: ["Literature search", "Paper analysis", "Academic focus"],
+        weakAreas: ["Collaboration features", "Enterprise capabilities", "Integration ecosystem"],
+        metrics: {
+          teamStrength: 7,
+          technology: 8,
+          goToMarket: 6,
+          customerExperience: 7,
+          marketFit: 7
+        }
+      }
+    ],
+    marketGap: {
+      description: "Research teams lack effective tools that combine AI-powered knowledge discovery with collaborative workflows designed specifically for scientific research processes.",
+      currentSolutions: [
+        { category: "General Knowledge Management", limitations: "Not optimized for scientific workflows" },
+        { category: "Literature Search Tools", limitations: "Limited collaboration capabilities" },
+        { category: "AI Assistants", limitations: "Not specialized for research domains" }
+      ],
+      opportunityAreas: [
+        "AI-powered research synthesis",
+        "Cross-team knowledge sharing",
+        "Research-specific collaboration",
+        "Domain-specific model fine-tuning"
+      ]
+    },
+    teamBenchmarks: [
+      {
+        name: "Andrej Karpathy",
+        background: "Former Tesla AI Director, OpenAI founding team",
+        relevance: "Pioneer in applied AI research"
+      },
+      {
+        name: "Daniela Amodei",
+        background: "Co-founder of Anthropic, former VP at OpenAI",
+        relevance: "AI safety and research translation"
+      },
+      {
+        name: "Lila Ibrahim",
+        background: "COO at DeepMind, former Intel and Coursera",
+        relevance: "Scaling research-driven organizations"
+      }
+    ],
+    proxyMetrics: {
+      marketGrowth: { 
+        analogousMarket: "AI development tools",
+        annualGrowthRate: 38,
+        timeframe: "2020-2023"
+      },
+      customerAcquisition: {
+        analogousCompany: "Roam Research",
+        metricValue: 120,
+        unit: "days to 10,000 users"
+      },
+      retention: {
+        analogousCompany: "Readwise",
+        metricValue: 78,
+        unit: "percent annual retention"
+      }
+    },
+    metrics: {
+      teamStrength: 9,
+      technology: 8,
+      goToMarket: 6,
+      customerExperience: 7,
+      marketFit: 8
+    },
+    possibleMoves: [
+      {
+        id: 1,
+        strategy: "Launch research institution partnership program",
+        description: "Create structured partnerships with universities and research labs",
+        competitorResponses: [
+          {
+            competitor: "Notion",
+            response: "Introduce education-specific templates and features",
+            counterStrategy: "Highlight domain-specific AI capabilities not possible on general platforms"
+          },
+          {
+            competitor: "Elicit",
+            response: "Expand their platform beyond search to include collaboration",
+            counterStrategy: "Emphasize unified workflow and specialized integrations with research tools"
+          }
+        ]
+      },
+      {
+        id: 2,
+        strategy: "Develop domain-specific AI models",
+        description: "Build specialized AI models for key scientific disciplines",
+        competitorResponses: [
+          {
+            competitor: "Notion",
+            response: "Partner with AI providers to offer similar capabilities",
+            counterStrategy: "Showcase proprietary models trained specifically for research contexts"
+          },
+          {
+            competitor: "Elicit",
+            response: "Improve their existing models for literature analysis",
+            counterStrategy: "Demonstrate broader capabilities beyond literature search to full knowledge synthesis"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 6,
+    name: "Greenpath",
+    description: "Carbon accounting and reduction platform for SMBs",
+    founded: 2021,
+    funding: "8M",
+    stage: "series-a",
+    keyDifferentiators: [
+      "Automated carbon footprint calculation",
+      "Industry-specific reduction strategies",
+      "SMB-focused sustainability roadmaps",
+      "Compliance reporting automation"
+    ],
+    executionAdvantages: [
+      "Simplified onboarding for non-technical users",
+      "Data integration with existing business systems",
+      "Machine learning for identifying reduction opportunities",
+      "Strong environmental science advisory board"
+    ],
+    competitors: [
+      {
+        id: 601,
+        name: "Watershed",
+        founded: 2019,
+        strengthAreas: ["Enterprise focus", "Deep analytics", "Supply chain measurements"],
+        weakAreas: ["SMB accessibility", "Implementation complexity", "Cost structure"],
+        metrics: {
+          teamStrength: 8,
+          technology: 9,
+          goToMarket: 7,
+          customerExperience: 7,
+          marketFit: 8
+        }
+      }
+    ],
+    indirectCompetitors: [
+      {
+        id: 602,
+        name: "Salesforce Net Zero Cloud",
+        category: "Enterprise Sustainability",
+        founded: 2021,
+        strengthAreas: ["Brand recognition", "Enterprise integration", "Reporting capabilities"],
+        weakAreas: ["SMB focus", "Implementation simplicity", "Cost accessibility"],
+        metrics: {
+          teamStrength: 8,
+          technology: 7,
+          goToMarket: 9,
+          customerExperience: 7,
+          marketFit: 7
+        }
+      }
+    ],
+    marketGap: {
+      description: "Small and medium businesses need accessible carbon accounting solutions that don't require sustainability experts to implement and use effectively.",
+      currentSolutions: [
+        { category: "Enterprise Carbon Management", limitations: "Too complex and expensive for SMBs" },
+        { category: "Generic Calculators", limitations: "Lack integration and actionable insights" },
+        { category: "Consultants", limitations: "High cost and not scalable" }
+      ],
+      opportunityAreas: [
+        "Simplified carbon accounting for non-experts",
+        "Affordable compliance reporting",
+        "Automated data collection and processing",
+        "SMB-specific reduction strategies"
+      ]
+    },
+    teamBenchmarks: [
+      {
+        name: "Kate Brandt",
+        background: "Former Google Sustainability Officer, U.S. Federal Environmental Executive",
+        relevance: "Sustainability implementation at scale"
+      },
+      {
+        name: "Kentaro Kawamori",
+        background: "Co-founder of Persefoni, Former Chief Digital Officer at Chesapeake Energy",
+        relevance: "Carbon management software execution"
+      }
+    ],
+    proxyMetrics: {
+      marketGrowth: { 
+        analogousMarket: "ESG reporting software",
+        annualGrowthRate: 25,
+        timeframe: "2020-2023"
+      },
+      customerAcquisition: {
+        analogousCompany: "Gusto",
+        metricValue: 45,
+        unit: "days sales cycle for SMBs"
+      },
+      retention: {
+        analogousCompany: "QuickBooks",
+        metricValue: 85,
+        unit: "percent annual retention for SMB tools"
+      }
+    },
+    metrics: {
+      teamStrength: 8,
+      technology: 7,
+      goToMarket: 8,
+      customerExperience: 9,
+      marketFit: 9
+    },
+    possibleMoves: [
+      {
+        id: 1,
+        strategy: "Launch industry-specific templates",
+        description: "Create pre-configured setups for key SMB sectors like retail and manufacturing",
+        competitorResponses: [
+          {
+            competitor: "Watershed",
+            response: "Develop lower-cost offerings for smaller businesses",
+            counterStrategy: "Emphasize SMB-native design rather than simplified enterprise solutions"
+          },
+          {
+            competitor: "Salesforce Net Zero Cloud",
+            response: "Create SMB-focused version of their platform",
+            counterStrategy: "Highlight independent platform advantages and cost-effectiveness"
+          }
+        ]
+      },
+      {
+        id: 2,
+        strategy: "Develop SMB carbon marketplaces",
+        description: "Create a platform for small businesses to participate in carbon markets",
+        competitorResponses: [
+          {
+            competitor: "Watershed",
+            response: "Expand their existing carbon markets program to smaller businesses",
+            counterStrategy: "Design collective purchasing power capabilities uniquely beneficial to SMBs"
+          },
+          {
+            competitor: "Salesforce Net Zero Cloud",
+            response: "Partner with carbon market providers",
+            counterStrategy: "Build direct integrations and simplified verification processes"
           }
         ]
       }

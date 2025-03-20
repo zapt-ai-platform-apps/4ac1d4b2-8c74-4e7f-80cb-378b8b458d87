@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '@/components/shared/Card';
 
 export default function NarrativeTemplate({ startup }) {
+  const isEarlyStage = ['pre-seed', 'seed'].includes(startup.stage);
   const templates = {
     'Stripe': {
       marketInsight: "The global payments landscape is fragmented and complex, with businesses struggling to implement robust payment solutions across borders. While there are several established players, we've identified critical friction points in developer implementation and international expansion that remain unsolved.",
@@ -26,10 +27,22 @@ export default function NarrativeTemplate({ startup }) {
       competitiveAdvantage: "Unlike Booking.com's focus on traditional accommodations or VRBO's limited vacation rental approach, our advantage is in creating a community-driven marketplace that offers truly unique properties and experiences. We're not the first accommodation booking platform, but we've excelled at trust, quality control, and user experience design.",
       executionStrategy: "Our execution strategy focuses on (1) Building sophisticated trust and safety systems that enable peer-to-peer transactions; (2) Creating a content-rich platform with professional photography and standardized information; and (3) Continuously expanding into adjacent travel experiences beyond just accommodations.",
       teamStrengths: "Our team combines expertise in marketplace dynamics, community building, and user experience design. This unique combination enables us to solve both the technical and human challenges of building a global person-to-person marketplace more effectively than traditional travel industry competitors."
+    },
+    'Nova AI': {
+      marketInsight: "Research teams across academia and industry are drowning in information yet starving for insights. While general knowledge management tools like Notion and specialized research tools like Elicit exist, there's a critical gap in tools that combine AI-powered knowledge discovery with collaborative workflows specifically designed for scientific research.",
+      competitiveAdvantage: "Unlike general platforms that lack research-specific capabilities or specialized tools with limited collaboration features, our solution is purpose-built for research teams with domain-specific AI models that understand scientific contexts. We're not creating another generic AI tool, but rather a specialized system that speaks the language of researchers.",
+      executionStrategy: "Our execution approach centers on (1) Building partnerships with leading research institutions to gain user feedback and validation; (2) Developing specialized AI models for key scientific domains; and (3) Creating intuitive collaborative workflows that fit seamlessly into existing research processes rather than requiring teams to change how they work.",
+      teamStrengths: "Our founding team combines PhD-level expertise in AI research with experience building and scaling scientific software platforms. Similar to how Andrej Karpathy bridged academic AI research and practical applications at Tesla, our team brings both the technical depth and practical implementation experience needed to solve complex research collaboration challenges."
+    },
+    'Greenpath': {
+      marketInsight: "Small and medium businesses increasingly need to measure and reduce their carbon footprint, driven by customer demands, regulatory requirements, and genuine environmental concerns. While enterprise solutions like Watershed offer sophisticated tools and generic calculators provide basic estimates, SMBs lack accessible solutions that balance ease of use with actionable insights.",
+      competitiveAdvantage: "Unlike enterprise platforms that require sustainability teams to implement or simplistic calculators that provide limited actionability, we've created an SMB-native approach that automates data collection and provides specific, achievable reduction strategies tailored to each business type. We're not the first carbon management platform, but we're the first truly designed for how SMBs operate.",
+      executionStrategy: "Our execution priorities are (1) Simplifying onboarding through pre-built templates for common business types; (2) Automating data collection through integrations with tools SMBs already use; and (3) Providing clear, achievable reduction roadmaps that balance impact with implementation feasibility for resource-constrained businesses.",
+      teamStrengths: "Our team combines climate science expertise with SMB software experience, similar to how Gusto's founding team combined tax expertise with SMB-focused product design to transform payroll for small businesses. This combination gives us unique insight into creating sustainability solutions that work with real-world SMB constraints and capabilities."
     }
   };
   
-  const template = templates[startup.name] || templates['Stripe'];
+  const template = templates[startup.name] || (isEarlyStage ? templates['Nova AI'] : templates['Stripe']);
   
   return (
     <Card>
@@ -42,7 +55,7 @@ export default function NarrativeTemplate({ startup }) {
         </div>
         
         <div className="mb-4">
-          <h4 className="text-md font-medium text-gray-700">Competitive Advantage</h4>
+          <h4 className="text-md font-medium text-gray-700">{isEarlyStage ? "Solution Advantage" : "Competitive Advantage"}</h4>
           <p className="text-sm text-gray-600">{template.competitiveAdvantage}</p>
         </div>
         

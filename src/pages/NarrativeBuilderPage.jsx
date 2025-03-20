@@ -15,6 +15,22 @@ export default function NarrativeBuilderPage() {
     teamStrengths: ''
   });
   
+  const isEarlyStage = ['pre-seed', 'seed'].includes(selectedStartup.stage);
+  const placeholders = {
+    marketInsight: isEarlyStage 
+      ? "Describe the market gap you've identified and why current solutions are insufficient..." 
+      : "Describe your understanding of the market problem and opportunity...",
+    competitiveAdvantage: isEarlyStage
+      ? "What specific advantages do you have over adjacent solutions in this space?"
+      : "What specific advantages do you have over direct competitors?",
+    executionStrategy: isEarlyStage
+      ? "How will you execute better than established players in adjacent spaces?"
+      : "How will you execute better than the competition?",
+    teamStrengths: isEarlyStage
+      ? "What unique expertise does your team bring that established teams in similar spaces lack?"
+      : "What makes your team uniquely qualified to execute on this vision?"
+  };
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNarrative(prev => ({
@@ -28,7 +44,7 @@ export default function NarrativeBuilderPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Investment Narrative Builder</h1>
         <p className="text-gray-600 mt-2">
-          Craft a compelling competitive story for investors focused on execution advantages.
+          Craft a compelling competitive story for investors focused on execution advantages{isEarlyStage ? " for early-stage startups" : ""}.
         </p>
       </div>
       
@@ -51,7 +67,7 @@ export default function NarrativeBuilderPage() {
                   name="marketInsight"
                   rows={3}
                   className="w-full p-2 border border-gray-300 rounded-md box-border"
-                  placeholder="Describe your understanding of the market problem and opportunity..."
+                  placeholder={placeholders.marketInsight}
                   value={narrative.marketInsight}
                   onChange={handleChange}
                 />
@@ -59,14 +75,14 @@ export default function NarrativeBuilderPage() {
               
               <div>
                 <label htmlFor="competitiveAdvantage" className="block text-sm font-medium text-gray-700 mb-1">
-                  Competitive Advantage
+                  {isEarlyStage ? "Solution Advantage" : "Competitive Advantage"}
                 </label>
                 <textarea
                   id="competitiveAdvantage"
                   name="competitiveAdvantage"
                   rows={3}
                   className="w-full p-2 border border-gray-300 rounded-md box-border"
-                  placeholder="What specific advantages do you have over competitors?"
+                  placeholder={placeholders.competitiveAdvantage}
                   value={narrative.competitiveAdvantage}
                   onChange={handleChange}
                 />
@@ -81,7 +97,7 @@ export default function NarrativeBuilderPage() {
                   name="executionStrategy"
                   rows={3}
                   className="w-full p-2 border border-gray-300 rounded-md box-border"
-                  placeholder="How will you execute better than the competition?"
+                  placeholder={placeholders.executionStrategy}
                   value={narrative.executionStrategy}
                   onChange={handleChange}
                 />
@@ -96,13 +112,28 @@ export default function NarrativeBuilderPage() {
                   name="teamStrengths"
                   rows={3}
                   className="w-full p-2 border border-gray-300 rounded-md box-border"
-                  placeholder="What makes your team uniquely qualified to execute on this vision?"
+                  placeholder={placeholders.teamStrengths}
                   value={narrative.teamStrengths}
                   onChange={handleChange}
                 />
               </div>
             </form>
           </Card>
+          
+          {isEarlyStage && (
+            <div className="mt-6">
+              <Card>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Early-Stage Narrative Tips</h3>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Focus on the market gap you're addressing, not just product features</li>
+                  <li>• Emphasize team credentials compared to successful founders in related spaces</li>
+                  <li>• Highlight why incumbents can't easily solve the problem you're addressing</li>
+                  <li>• Use analogous markets to demonstrate growth potential</li>
+                  <li>• Articulate a clear "why now" thesis for your timing in the market</li>
+                </ul>
+              </Card>
+            </div>
+          )}
         </div>
         
         <div>

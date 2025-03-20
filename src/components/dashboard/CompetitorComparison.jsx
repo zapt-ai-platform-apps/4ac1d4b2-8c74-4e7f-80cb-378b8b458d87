@@ -19,7 +19,11 @@ export default function CompetitorComparison() {
     }
     
     // Prepare data for the chart
-    const competitors = selectedStartup.competitors;
+    const isEarlyStage = ['pre-seed', 'seed'].includes(selectedStartup.stage);
+    const competitors = isEarlyStage 
+      ? selectedStartup.indirectCompetitors || [] 
+      : selectedStartup.competitors || [];
+    
     const metrics = [
       'teamStrength',
       'technology',
@@ -50,10 +54,11 @@ export default function CompetitorComparison() {
       ...competitors.map((competitor, index) => {
         const colors = [
           { border: 'rgba(239, 68, 68, 1)', bg: 'rgba(239, 68, 68, 0.2)' },
-          { border: 'rgba(16, 185, 129, 1)', bg: 'rgba(16, 185, 129, 0.2)' }
+          { border: 'rgba(16, 185, 129, 1)', bg: 'rgba(16, 185, 129, 0.2)' },
+          { border: 'rgba(217, 119, 6, 1)', bg: 'rgba(217, 119, 6, 0.2)' }
         ];
         return {
-          label: competitor.name,
+          label: competitor.name + (isEarlyStage && competitor.category ? ` (${competitor.category})` : ''),
           data: metrics.map(metric => competitor.metrics[metric]),
           backgroundColor: colors[index % colors.length].bg,
           borderColor: colors[index % colors.length].border,
@@ -105,15 +110,25 @@ export default function CompetitorComparison() {
     };
   }, [selectedStartup]);
   
+  const isEarlyStage = ['pre-seed', 'seed'].includes(selectedStartup.stage);
+  const subtitle = isEarlyStage 
+    ? "Performance metrics against adjacent solutions in related spaces"
+    : "Performance metrics against key competitors";
+  
   return (
     <div>
       <SectionHeading 
-        title="Competitive Comparison" 
-        subtitle="Performance metrics against key competitors"
+        title={isEarlyStage ? "Indirect Competitor Comparison" : "Competitive Comparison"}
+        subtitle={subtitle}
       />
       <Card className="h-96">
         <canvas ref={chartRef} />
       </Card>
+      {isEarlyStage && (
+        <div className="mt-2 text-sm text-gray-600">
+          <p>Note: For early-stage companies, we analyze adjacent solutions that solve similar problems rather than direct competitors.</p>
+        </div>
+      )}
     </div>
   );
 }

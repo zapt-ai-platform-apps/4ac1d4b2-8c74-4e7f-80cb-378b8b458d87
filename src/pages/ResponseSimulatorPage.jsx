@@ -8,6 +8,7 @@ import { useAppContext } from '@/context/AppContext';
 export default function ResponseSimulatorPage() {
   const { selectedStartup } = useAppContext();
   const [selectedStrategy, setSelectedStrategy] = useState(null);
+  const isEarlyStage = ['pre-seed', 'seed'].includes(selectedStartup.stage);
   
   const handleStrategySelect = (strategy) => {
     setSelectedStrategy(strategy);
@@ -18,7 +19,7 @@ export default function ResponseSimulatorPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Competitive Response Simulator</h1>
         <p className="text-gray-600 mt-2">
-          Anticipate how competitors might respond to your strategic moves and prepare effective counter-strategies.
+          Anticipate how {isEarlyStage ? 'adjacent solutions' : 'competitors'} might respond to your strategic moves and prepare effective counter-strategies.
         </p>
       </div>
       
@@ -49,8 +50,8 @@ export default function ResponseSimulatorPage() {
         
         <div className="lg:col-span-2">
           <SectionHeading 
-            title="Competitor Responses" 
-            subtitle="See how competitors might react and plan your counter-strategy"
+            title={isEarlyStage ? "Adjacent Solution Responses" : "Competitor Responses"} 
+            subtitle={`See how ${isEarlyStage ? 'similar solutions' : 'competitors'} might react and plan your counter-strategy`}
           />
           
           {selectedStrategy ? (
@@ -67,7 +68,7 @@ export default function ResponseSimulatorPage() {
           ) : (
             <Card>
               <div className="text-center py-12 text-gray-500">
-                <p>Select a strategic move from the left panel to see potential competitor responses.</p>
+                <p>Select a strategic move from the left panel to see potential {isEarlyStage ? 'solution provider' : 'competitor'} responses.</p>
               </div>
             </Card>
           )}
@@ -77,31 +78,56 @@ export default function ResponseSimulatorPage() {
       <div className="mb-8">
         <SectionHeading 
           title="Strategy Planning Tips" 
-          subtitle="Best practices for anticipating and countering competitive responses"
+          subtitle={`Best practices for ${isEarlyStage ? 'early-stage companies' : 'established startups'} anticipating market responses`}
         />
         <Card>
-          <ul className="space-y-3">
-            <li className="flex items-start">
-              <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">1</span>
-              <span><strong>Think like your competitor:</strong> Consider their resources, constraints, and strategic priorities when anticipating responses.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">2</span>
-              <span><strong>Evaluate timing:</strong> Some competitive responses will be immediate, while others might take months or years to implement.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">3</span>
-              <span><strong>Consider multiple scenarios:</strong> Develop plans for best-case, worst-case, and most likely competitive responses.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">4</span>
-              <span><strong>Focus on execution advantages:</strong> Your counter-strategy should leverage areas where you can outexecute competitors.</span>
-            </li>
-            <li className="flex items-start">
-              <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">5</span>
-              <span><strong>Plan for resource allocation:</strong> Ensure you have the necessary resources to execute your counter-strategy effectively.</span>
-            </li>
-          </ul>
+          {isEarlyStage ? (
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">1</span>
+                <span><strong>Identify market gaps:</strong> Focus on areas where current solutions fall short rather than trying to compete head-on.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">2</span>
+                <span><strong>Leverage agility:</strong> Your advantage as a small company is the ability to pivot quickly as the market evolves and incumbent solutions respond.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">3</span>
+                <span><strong>Focus on underserved segments:</strong> Identify specific customer segments that larger adjacent solutions are overlooking or serving poorly.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">4</span>
+                <span><strong>Build strategic partnerships:</strong> Partner with complementary solutions rather than competing directly with established players.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">5</span>
+                <span><strong>Emphasize domain expertise:</strong> Highlight your team's specialized knowledge in your targeted problem space versus generalist solutions.</span>
+              </li>
+            </ul>
+          ) : (
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">1</span>
+                <span><strong>Think like your competitor:</strong> Consider their resources, constraints, and strategic priorities when anticipating responses.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">2</span>
+                <span><strong>Evaluate timing:</strong> Some competitive responses will be immediate, while others might take months or years to implement.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">3</span>
+                <span><strong>Consider multiple scenarios:</strong> Develop plans for best-case, worst-case, and most likely competitive responses.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">4</span>
+                <span><strong>Focus on execution advantages:</strong> Your counter-strategy should leverage areas where you can outexecute competitors.</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-flex items-center justify-center flex-shrink-0 w-6 h-6 mr-2 bg-blue-100 text-blue-600 rounded-full">5</span>
+                <span><strong>Plan for resource allocation:</strong> Ensure you have the necessary resources to execute your counter-strategy effectively.</span>
+              </li>
+            </ul>
+          )}
         </Card>
       </div>
     </div>

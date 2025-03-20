@@ -2,7 +2,10 @@ import React from 'react';
 import { useAppContext } from '@/context/AppContext';
 
 export default function MetricComparison({ metric, startup }) {
-  const competitors = startup.competitors;
+  const isEarlyStage = ['pre-seed', 'seed'].includes(startup.stage);
+  const competitors = isEarlyStage 
+    ? startup.indirectCompetitors || [] 
+    : startup.competitors || [];
   
   // Function to get bar width percentage
   const getBarWidth = (value) => {
@@ -43,7 +46,12 @@ export default function MetricComparison({ metric, startup }) {
         {competitors.map((competitor, index) => (
           <div key={index}>
             <div className="flex justify-between items-center mb-1">
-              <span className="text-sm font-medium text-gray-700">{competitor.name}</span>
+              <span className="text-sm font-medium text-gray-700">
+                {competitor.name}
+                {isEarlyStage && competitor.category && (
+                  <span className="text-xs text-gray-500 ml-1">({competitor.category})</span>
+                )}
+              </span>
               <span className="text-sm font-medium text-gray-700">{competitor.metrics[metric.key]}/10</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2.5">
