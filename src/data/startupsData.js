@@ -652,5 +652,158 @@ export const startupsData = [
         ]
       }
     ]
+  },
+  {
+    id: 7,
+    name: "ZAPT",
+    description: "Create Apps in Minutes. No Coding Required",
+    founded: 2023,
+    funding: "0.001M", // Less than $1000 in revenue
+    stage: "pre-seed",
+    keyDifferentiators: [
+      "AI that understands plain English app descriptions",
+      "Built-in protection and reliability features",
+      "No technical skills required for professional apps",
+      "All-inclusive platform (databases, logins, payments, analytics)"
+    ],
+    executionAdvantages: [
+      "Rapid app creation and deployment",
+      "Automatic error monitoring and backups",
+      "Simple usage-based pricing model",
+      "Intuitive interface for non-technical users"
+    ],
+    indirectCompetitors: [
+      {
+        id: 701,
+        name: "Lovable",
+        category: "No-Code Platform",
+        founded: 2021,
+        strengthAreas: ["User experience", "Template variety", "Community support"],
+        weakAreas: ["AI capabilities", "Enterprise features", "Backend complexity"],
+        metrics: {
+          teamStrength: 7,
+          technology: 7,
+          goToMarket: 8,
+          customerExperience: 9,
+          marketFit: 8
+        }
+      },
+      {
+        id: 702,
+        name: "Bolt.new",
+        category: "Web App Builder",
+        founded: 2020,
+        strengthAreas: ["Developer tooling", "Technical flexibility", "Integration capabilities"],
+        weakAreas: ["Learning curve", "Non-technical accessibility", "Deployment simplicity"],
+        metrics: {
+          teamStrength: 8,
+          technology: 9,
+          goToMarket: 7,
+          customerExperience: 6,
+          marketFit: 7
+        }
+      },
+      {
+        id: 703,
+        name: "Replit",
+        category: "Development Environment",
+        founded: 2016,
+        strengthAreas: ["Code editing", "Developer community", "Programming education"],
+        weakAreas: ["Non-coder accessibility", "End-to-end app creation", "Business tooling"],
+        metrics: {
+          teamStrength: 9,
+          technology: 9,
+          goToMarket: 8,
+          customerExperience: 7,
+          marketFit: 8
+        }
+      }
+    ],
+    marketGap: {
+      description: "Traditional app development requires coding skills and technical expertise, creating a barrier for non-technical founders and businesses who need custom software solutions.",
+      currentSolutions: [
+        { category: "Traditional Development", limitations: "High cost and long timeframes" },
+        { category: "No-Code Platforms", limitations: "Limited functionality and customization" },
+        { category: "Development Environments", limitations: "Still requires coding knowledge" }
+      ],
+      opportunityAreas: [
+        "AI-powered app creation from natural language descriptions",
+        "Professional app capabilities without technical expertise",
+        "Usage-based pricing for accessible entry point",
+        "Enterprise-grade reliability without enterprise complexity"
+      ]
+    },
+    teamBenchmarks: [
+      {
+        name: "Satya Nadella",
+        background: "CEO of Microsoft, led cloud transformation",
+        relevance: "Transforming technical complexity into accessible products"
+      },
+      {
+        name: "Melanie Perkins",
+        background: "Co-founder and CEO of Canva",
+        relevance: "Democratizing design for non-designers through intuitive interfaces"
+      }
+    ],
+    proxyMetrics: {
+      marketGrowth: { 
+        analogousMarket: "No-code/low-code development platforms",
+        annualGrowthRate: 32,
+        timeframe: "2021-2024"
+      },
+      customerAcquisition: {
+        analogousCompany: "Canva",
+        metricValue: 145,
+        unit: "days to first 10,000 users"
+      },
+      retention: {
+        analogousCompany: "Figma",
+        metricValue: 83,
+        unit: "percent annual retention"
+      }
+    },
+    metrics: {
+      teamStrength: 8,
+      technology: 9,
+      goToMarket: 7,
+      customerExperience: 9,
+      marketFit: 8
+    },
+    possibleMoves: [
+      {
+        id: 1,
+        strategy: "Launch enterprise partnership program",
+        description: "Create structured partnerships with larger organizations for custom solutions",
+        competitorResponses: [
+          {
+            competitor: "Lovable",
+            response: "Enhance their enterprise features and security capabilities",
+            counterStrategy: "Emphasize AI-driven customization that doesn't require template limitations"
+          },
+          {
+            competitor: "Replit",
+            response: "Introduce more no-code elements to attract business users",
+            counterStrategy: "Highlight the complete no-code approach versus a hybrid solution requiring some technical knowledge"
+          }
+        ]
+      },
+      {
+        id: 2,
+        strategy: "Develop industry-specific templates",
+        description: "Create pre-configured app templates for key industries like healthcare and finance",
+        competitorResponses: [
+          {
+            competitor: "Bolt.new",
+            response: "Accelerate their own template marketplace development",
+            counterStrategy: "Focus on AI customization that adapts templates automatically rather than requiring selection from a fixed gallery"
+          },
+          {
+            competitor: "Lovable",
+            response: "Expand their existing template library with more professional options",
+            counterStrategy: "Demonstrate how AI-generated apps can be more tailored to specific business needs than templates"
+          }
+        ]
+      }
+    ]
   }
 ];
