@@ -8,6 +8,7 @@ import ExecutionAdvantages from '@/components/dashboard/ExecutionAdvantages';
 import MarketGapVisualization from '@/components/dashboard/MarketGapVisualization';
 import TeamBenchmark from '@/components/dashboard/TeamBenchmark';
 import ProxyMetrics from '@/components/dashboard/ProxyMetrics';
+import Card from '@/components/shared/Card';
 import { useAppContext } from '@/context/AppContext';
 
 export default function DashboardPage() {
