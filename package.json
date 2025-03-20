@@ -1,7 +1,7 @@
 {
     "name": "competitive-edge-analyzer",
     "version": "1.0.0",
-    "description": "Competitive Edge Analyzer app for David Levine",
+    "description": "Application for analyzing competitive positioning for startups",
     "type": "module",
     "scripts": {
         "dev": "vite",

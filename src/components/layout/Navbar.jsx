@@ -62,9 +62,6 @@ export default function Navbar() {
               <h1 className={`font-bold text-lg font-display ${scrolled ? 'text-primary-700' : 'text-white'}`}>
                 Competitive Edge Analyzer
               </h1>
-              <p className={`text-xs ${scrolled ? 'text-gray-500' : 'text-primary-100'}`}>
-                by David Levine
-              </p>
             </div>
           </Link>
           

@@ -1,4 +1,4 @@
-# David Levine - Competitive Edge Analyzer
+# Competitive Edge Analyzer
 
 An application for analyzing competitive positioning for startups, helping founders craft compelling investment narratives focused on execution advantages rather than "first/only" claims.
 

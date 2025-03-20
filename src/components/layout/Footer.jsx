@@ -15,7 +15,7 @@ export default function Footer() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            © {currentYear} David Levine - Competitive Edge Analyzer. All rights reserved.
+            © {currentYear} Competitive Edge Analyzer. All rights reserved.
           </motion.div>
           <motion.div 
             className="flex items-center space-x-4"
